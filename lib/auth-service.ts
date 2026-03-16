@@ -1,7 +1,7 @@
+import { db } from "./firebase";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "./firebase";
-import { collection, addDoc, serverTimestamp, query, orderBy, getDocs } from "firebase/firestore";
-import { db } from "./firebase";
+import { collection, addDoc, serverTimestamp, query, orderBy, getDocs, doc, getDoc } from "firebase/firestore";
 
 export interface UserFormData {
   company: string;
@@ -11,6 +11,18 @@ export interface UserFormData {
   contractor: string;
   bloodGroup: string;
   emergencyContact: string;
+}
+
+export interface Personnel {
+  id: string;
+  name: string;
+  age: number;
+  company: string;
+  project: string;
+  contractor: string;
+  bloodGroup: string;
+  emergencyContact: string;
+  createdAt?: any;
 }
 
 export const loginUser = async (email: string, pass: string) => {
@@ -41,4 +53,15 @@ export const getPersonnelList = async () => {
     id: doc.id,
     ...doc.data()
   }));
+};
+
+export const getPersonnelById = async (id: string): Promise<Personnel | null> => {
+  const docRef = doc(db, "users", id);
+  const docSnap = await getDoc(docRef);
+
+  if (docSnap.exists()) {
+    return { id: docSnap.id, ...docSnap.data() } as Personnel;
+  } else {
+    return null;
+  }
 };
