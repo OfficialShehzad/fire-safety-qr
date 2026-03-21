@@ -22,6 +22,8 @@ export interface Personnel {
   contractor: string;
   bloodGroup: string;
   emergencyContact: string;
+  emergencyContact2: string;
+  manualId: string;
   createdAt?: any;
 }
 

@@ -106,6 +106,20 @@ export default async function UserProfilePage({ params }: { params: { id: string
                                     <Phone className="h-5 w-5 fill-current" />
                                 </a>
                             </div>
+                   
+                            <div className="bg-red-50 border border-red-100 rounded-xl p-4 mt-4">
+                                <div className="flex items-center gap-2 text-red-700 mb-3">
+                                    <ShieldAlert className="h-5 w-5" />
+                                    <span className="text-sm font-bold uppercase tracking-wide">Emergency Contact</span>
+                                </div>
+                                <a
+                                    href={`tel:${person.emergencyContact}`}
+                                    className="flex items-center justify-between bg-white border border-red-200 rounded-lg p-3 text-red-600 hover:bg-red-600 hover:text-white transition-all shadow-sm"
+                                >
+                                    <span className="font-bold text-lg">{person.emergencyContact2}</span>
+                                    <Phone className="h-5 w-5 fill-current" />
+                                </a>
+                            </div>
                         </div>
                     </CardContent>
                 </Card>
