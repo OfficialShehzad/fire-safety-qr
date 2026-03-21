@@ -20,6 +20,8 @@ export function DashboardUserForm() {
         contractor: "",
         bloodGroup: "",
         emergencyContact: "",
+        emergencyContact2: "",
+        manualId: "", 
     });
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -34,7 +36,7 @@ export function DashboardUserForm() {
             });
             setIsSuccess(true);
             // Reset non-static fields
-            setFormData(prev => ({ ...prev, name: "", age: "", contractor: "", bloodGroup: "", emergencyContact: "" }));
+            setFormData(prev => ({ ...prev, name: "", age: "", contractor: "", bloodGroup: "", emergencyContact: "", emergencyContact2: "", manualId: "", }));
         } catch (error) {
             console.error("Error adding document: ", error);
         } finally {
@@ -51,60 +53,86 @@ export function DashboardUserForm() {
             <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                        {/* Company / Project */}
                         <div className="space-y-2">
-                            <Label htmlFor="company">Company</Label>
-                            <Input id="company" value={formData.company} disabled className="bg-slate-50" />
+                            <Label>Company</Label>
+                            <Input value={formData.company} disabled className="bg-slate-50" />
                         </div>
+
                         <div className="space-y-2">
-                            <Label htmlFor="project">Project</Label>
-                            <Input id="project" value={formData.project} disabled className="bg-slate-50" />
+                            <Label>Project</Label>
+                            <Input value={formData.project} disabled className="bg-slate-50" />
                         </div>
+
+                        {/* Name */}
                         <div className="space-y-2 md:col-span-2">
-                            <Label htmlFor="name">Full Name</Label>
+                            <Label>Full Name</Label>
                             <Input
-                                id="name"
                                 required
                                 value={formData.name}
                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                             />
                         </div>
+
+                        {/* Manual ID */}
                         <div className="space-y-2">
-                            <Label htmlFor="age">Age</Label>
+                            <Label>ID Number</Label>
                             <Input
-                                id="age"
+                                required
+                                value={formData.manualId}
+                                onChange={(e) => setFormData({ ...formData, manualId: e.target.value })}
+                            />
+                        </div>
+
+                        {/* Age */}
+                        <div className="space-y-2">
+                            <Label>Age</Label>
+                            <Input
                                 type="number"
                                 required
                                 value={formData.age}
                                 onChange={(e) => setFormData({ ...formData, age: e.target.value })}
                             />
                         </div>
+
+                        {/* Blood */}
                         <div className="space-y-2">
-                            <Label htmlFor="blood">Blood Group</Label>
+                            <Label>Blood Group</Label>
                             <Input
-                                id="blood"
-                                placeholder="e.g. O+ve"
                                 required
                                 value={formData.bloodGroup}
                                 onChange={(e) => setFormData({ ...formData, bloodGroup: e.target.value })}
                             />
                         </div>
+
+                        {/* Contractor */}
                         <div className="space-y-2">
-                            <Label htmlFor="contractor">Contractor</Label>
+                            <Label>Contractor</Label>
                             <Input
-                                id="contractor"
                                 required
                                 value={formData.contractor}
                                 onChange={(e) => setFormData({ ...formData, contractor: e.target.value })}
                             />
                         </div>
+
+                        {/* Emergency Contacts */}
                         <div className="space-y-2">
-                            <Label htmlFor="emergency">Emergency Contact</Label>
+                            <Label>Emergency Contact</Label>
                             <Input
-                                id="emergency"
                                 type="tel"
                                 required
                                 value={formData.emergencyContact}
                                 onChange={(e) => setFormData({ ...formData, emergencyContact: e.target.value })}
+                            />
+                        </div>
+
+                        <div className="space-y-2">
+                            <Label>Emergency Contact 2</Label>
+                            <Input
+                                type="tel"
+                                value={formData.emergencyContact2}
+                                onChange={(e) => setFormData({ ...formData, emergencyContact2: e.target.value })}
                             />
                         </div>
                     </div>

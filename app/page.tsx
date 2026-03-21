@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Loader2, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export default function LandingPage() {
   const { user, loading } = useAuth();
@@ -22,7 +23,7 @@ export default function LandingPage() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('/bg.jpg')`,
+          backgroundImage: `url('/aster-hospital.jpeg')`,
         }}
       >
         <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
@@ -31,7 +32,7 @@ export default function LandingPage() {
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
         <h1 className="max-w-4xl text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl">
-          Fire Safety & QR <br />
+          QR <br />
           <span className="text-slate-400">Management System</span>
         </h1>
 
@@ -57,10 +58,8 @@ export default function LandingPage() {
       </div>
 
       {/* Subtle Bottom Branding */}
-      <div className="absolute bottom-8 left-0 right-0 z-10 text-center">
-        <p className="text-sm text-slate-500 font-medium tracking-widest uppercase">
-          Aster Project • Interio by Godrej
-        </p>
+      <div className="absolute top-5 left-0 right-0 z-10 display-grid place-items-left px-8 mx-8 rounded-full bg-white/50">
+        <Image src={"/logo.png"} height={20} width={80} alt="interio by godrej"/>
       </div>
     </main>
   );
