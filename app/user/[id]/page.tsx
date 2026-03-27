@@ -119,7 +119,7 @@ export default async function UserProfilePage({ params }: { params: { id: string
                                     <span className="text-sm font-bold uppercase tracking-wide">Emergency Contact</span>
                                 </div>
                                 <a
-                                    href={`tel:${person.emergencyContact}`}
+                                    href={`tel:${person.emergencyContact2}`}
                                     className="flex items-center justify-between bg-white border border-red-200 rounded-lg p-3 text-red-600 hover:bg-red-600 hover:text-white transition-all shadow-sm"
                                 >
                                     <span className="font-bold text-lg">{person.emergencyContact2}</span>
