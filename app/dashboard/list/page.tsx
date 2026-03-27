@@ -12,7 +12,7 @@ export default function ListPage() {
                         Personnel List
                     </h1>
                     <p className="text-slate-500">
-                        Viewing all registered staff for Interio by Godrej - Aster Project.
+                        Viewing all registered staff for Aster DM Healthcare Trivandrum Private Limited.
                     </p>
                 </div>
 

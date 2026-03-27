@@ -14,7 +14,7 @@ export function DashboardUserForm() {
 
     const [formData, setFormData] = useState({
         company: "Interio by Godrej",
-        project: "Aster DM Health Capital Trivandrum",
+        project: "Aster DM Healthcare Trivandrum Private Limited",
         name: "",
         age: "",
         contractor: "",
@@ -45,7 +45,7 @@ export function DashboardUserForm() {
     };
 
     return (
-        <Card className="max-w-2xl mx-auto shadow-sm">
+        <Card className="max-w-4xl mx-auto shadow-sm">
             <CardHeader>
                 <CardTitle className="text-xl">Personnel Registration</CardTitle>
                 <CardDescription>Enter details to generate safety records</CardDescription>
